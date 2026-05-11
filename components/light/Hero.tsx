@@ -45,7 +45,7 @@ export default function Hero() {
         >
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-blue-200 bg-blue-50 text-blue-600 text-sm font-medium">
             <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" aria-hidden="true" />
-            Powered by FutureHives AI Platform
+            Powered by ContractHive AI Platform
           </span>
         </motion.div>
 
@@ -56,7 +56,7 @@ export default function Hero() {
           className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-[1.05] tracking-tight"
         >
           <span className="bg-gradient-to-r from-[#2f5fe0] to-[#00bb7f] bg-clip-text text-transparent">
-            FutureHive
+            ContractHive
           </span>
           <br />
           <span className="text-slate-900">Portal</span>

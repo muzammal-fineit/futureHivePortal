@@ -30,10 +30,17 @@ const tagStyles: Record<ProductTag, { bg: string; text: string }> = {
   'Portal':     { bg: 'bg-sky-100',     text: 'text-sky-700' },
 }
 
+const CLIENT_IDS = new Set(['asg', 'addresscafe'])
+
 export default function Clients() {
   const [search, setSearch] = useState('')
+  const [tab, setTab] = useState<'clients' | 'demo'>('demo')
 
-  const filtered = clients.filter((c) => {
+  const tabClients = clients.filter((c) =>
+    tab === 'clients' ? CLIENT_IDS.has(c.id) : !CLIENT_IDS.has(c.id)
+  )
+
+  const filtered = tabClients.filter((c) => {
     const q = search.toLowerCase()
     return (
       c.name.toLowerCase().includes(q) ||
@@ -62,8 +69,24 @@ export default function Clients() {
             </span>
           </h2>
           <p className="text-slate-500 text-lg max-w-xl mx-auto mb-10 leading-relaxed">
-            Select your organization below to open your dedicated FutureHive instance.
+            Select your organization below to open your dedicated ContractHive instance.
           </p>
+
+          <div className="inline-flex rounded-2xl border border-slate-200 bg-slate-50 p-1.5 mb-8 gap-1">
+            {(['clients', 'demo'] as const).map((t) => (
+              <button
+                key={t}
+                onClick={() => setTab(t)}
+                className={`relative px-8 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 capitalize ${
+                  tab === t
+                    ? 'bg-gradient-to-r from-[#2f5fe0] to-[#00bb7f] text-white shadow-md shadow-blue-500/20'
+                    : 'text-slate-500 hover:text-slate-800 hover:bg-white/70'
+                }`}
+              >
+                {t === 'clients' ? 'Clients' : 'Demo'}
+              </button>
+            ))}
+          </div>
 
           <div className="relative max-w-md mx-auto">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" aria-hidden="true" />

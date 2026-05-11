@@ -1,19 +1,17 @@
-import Navbar from '@/components/Navbar'
-import Hero from '@/components/Hero'
-import Products from '@/components/Products'
-import Clients from '@/components/Clients'
-import Footer from '@/components/Footer'
+import Navbar from '@/components/light/Navbar'
+import Hero from '@/components/light/Hero'
+import Products from '@/components/light/Products'
+import Clients from '@/components/light/Clients'
+import Footer from '@/components/light/Footer'
 
 export default function Home() {
   return (
-    <>
+    <main>
       <Navbar />
-      <main>
-        <Hero />
-        <Products />
-        <Clients />
-      </main>
+      <Hero />
+      <Products />
+      <Clients />
       <Footer />
-    </>
+    </main>
   )
 }
