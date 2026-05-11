@@ -33,9 +33,14 @@ const tagStyles: Record<ProductTag, { bg: string; text: string }> = {
 export default function Clients() {
   const [search, setSearch] = useState('')
 
-  const filtered = clients.filter((c) =>
-    c.name.toLowerCase().includes(search.toLowerCase())
-  )
+  const filtered = clients.filter((c) => {
+    const q = search.toLowerCase()
+    return (
+      c.name.toLowerCase().includes(q) ||
+      c.href.toLowerCase().includes(q) ||
+      c.productTag.toLowerCase().includes(q)
+    )
+  })
 
   return (
     <section
