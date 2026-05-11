@@ -100,7 +100,7 @@ export default function Clients() {
 
         {/* Client grid */}
         {filtered.length > 0 && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
             {filtered.map((client, i) => {
               const tag = tagStyles[client.productTag]
               return (
@@ -113,12 +113,12 @@ export default function Clients() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: Math.min(i * 0.04, 0.3) }}
-                  className="group bg-white/[0.03] border border-white/[0.07] rounded-2xl p-6 flex flex-col gap-4 hover:bg-white/[0.07] hover:border-white/[0.14] hover:-translate-y-1 hover:shadow-xl hover:shadow-teal-500/[0.07] transition-all duration-300 cursor-pointer"
+                  className="group bg-white/[0.03] border border-white/[0.07] rounded-2xl p-4 sm:p-6 flex flex-col gap-3 sm:gap-4 hover:bg-white/[0.07] hover:border-white/[0.14] hover:-translate-y-1 hover:shadow-xl hover:shadow-teal-500/[0.07] transition-all duration-300 cursor-pointer"
                   aria-label={`Open ${client.name} portal`}
                 >
                   {/* Avatar */}
                   <div
-                    className={`w-12 h-12 rounded-xl bg-gradient-to-br ${avatarGradients[i % avatarGradients.length]} flex items-center justify-center text-white font-bold text-base flex-shrink-0 shadow-lg`}
+                    className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br ${avatarGradients[i % avatarGradients.length]} flex items-center justify-center text-white font-bold text-sm sm:text-base flex-shrink-0 shadow-lg`}
                     aria-hidden="true"
                   >
                     {client.name.slice(0, 2).toUpperCase()}
@@ -126,7 +126,7 @@ export default function Clients() {
 
                   {/* Info */}
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-semibold text-white text-sm mb-1 truncate">{client.name}</h3>
+                    <h3 className="font-semibold text-white text-xs sm:text-sm mb-1 truncate">{client.name}</h3>
                     <div className="flex items-center gap-2 mb-3 flex-wrap">
                       <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${tag.bg} ${tag.text}`}>
                         {client.productTag}
